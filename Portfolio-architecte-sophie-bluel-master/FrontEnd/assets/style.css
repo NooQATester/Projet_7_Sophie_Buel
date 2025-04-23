@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -125,6 +126,31 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.filter-button {
+	font-family: 'Syne';
+	color: #1D6154;
+	background-color: transparent;
+	border: 1px solid #1D6154 ;
+	border-radius: 60px;
+	margin-bottom: 60px;
+	margin-top: 30px;
+	padding: 10px 25px;
+	cursor: pointer;
+}
+
+.filter-button:hover, .filter-button :active, .filter-button.active {
+	background-color: #1D6154;
+	color: #FFFFFF;
+}
+
+.filters-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
