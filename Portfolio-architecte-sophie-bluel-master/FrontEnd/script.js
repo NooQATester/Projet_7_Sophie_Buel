@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
       body.insertBefore(divBanner, body.firstChild);
 
       body.style.marginTop = '40px';
+      console.log("ici")
     }
   });
     
