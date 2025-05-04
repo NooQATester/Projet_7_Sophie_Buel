@@ -14,7 +14,7 @@
 </head>
 <body id="body">
 	<div class="wrapper">
-		<!-- Ajout du bandeau d'édition dynamiquement (Si connecté) via index.js -->
+		<!-- Ajout du bandeau d'édition dynamiquement (Si connecté) via script.js -->
 		<header>
 			<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 			<nav>
@@ -47,9 +47,9 @@
 						<p>modifier</p>
 					</div>
 				</div>
-<!-- Ajout des boutons filtres via JS -->
+<!-- Ajout et gestion des boutons filtres via script.js -->
 				<div class="filters-container"></div>
-<!-- Gère via JS la génération des images dynamiquement -->
+<!-- Ajout des projets de la gallerie dynamiquement via script.js -->
 				<div class="gallery"></div>
 			</section>
 			<section id="contact">
@@ -67,25 +67,59 @@
 			</section>
 		</main>
 	</div>
-<!------------ Création de la modale ------------>
-<aside class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <i class="fa-solid fa-xmark closeIcon"></i>
-    <h3>Galerie photo</h3>
-		<div class="modal-gallery">
-		<!-- Images ici via JS -->
+<!------------ Création des deux vues de la modale ------------>
+	<aside class="modal" aria-hidden="true">
+		<div class="modal-content">
+			<!---------- Modale pour visualiser les projets ---------->
+			<div class="modal-gallery-view">
+				<i class="fa-solid fa-xmark closeIcon"></i>
+				<h3>Galerie photo</h3>
+				<div class="modal-gallery">
+				<!-- Affichage des images via modal.js -->
+				</div>
+				<hr />
+				<button class="button-add-picture">Ajouter une photo</button>
+			</div>
+		
+			<!---------- Modale pour ajouter un projet---------->
+			<div class="modal-add-picture">
+				<i class="fa-solid fa-arrow-left back-to-gallery"></i>
+				<i class="fa-solid fa-xmark closeIcon"></i>
+				<h3>Ajout photo</h3>
+		
+				<form class="add-picture">
+				<div class="upload">
+					<div class="upload-placeholder">
+					<i class="fa-regular fa-image"></i>
+					<label for="image-upload" class="upload-button">+ Ajouter photo</label>
+					<input type="file" id="image-upload" name="image" accept="image/jpeg,image/png" hidden>
+					<p class="upload-info">jpg, png : 4mo max</p>
+					</div>
+				</div>
+		
+				<div class="form-group">
+					<label for="title">Titre</label>
+					<input type="text" id="title" name="title">
+				</div>
+		
+				<div class="form-group">
+					<label for="category">Catégorie</label>
+					<select id="category" name="category"></select>
+				</div>
+
+				<hr>
+				<button type="submit" class="validate-button">Valider</button>
+				</form>
+			</div>
 		</div>
-    <hr />
-	<button class="button-add-picture">Ajouter une photo</button>
-  </div>
-</aside>
-<footer>
-	<nav>
-		<ul>
-			<li>Mentions Légales</li>
-		</ul>
-	</nav>
-</footer>
+  	</aside>
+	<footer>
+		<nav>
+			<ul>
+				<li>Mentions Légales</li>
+			</ul>
+		</nav>
+	</footer>
 <script src="script.js"></script>
 <script src="modal.js"></script>
 </body>
