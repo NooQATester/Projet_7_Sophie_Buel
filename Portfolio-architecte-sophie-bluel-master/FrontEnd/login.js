@@ -1,21 +1,18 @@
 async function init() {
     const form = document.querySelector('form');
-    // Quand on submit
+    //Ajout de l'évènement submit au formulaire qui executera la fonction login
     form.addEventListener("submit", login);
 }
 
-//Début du code qui gère le formulaire de connexion
-
+//Fonction de connexion
 async function login(event) {
     event.preventDefault();
+    
     const email = document.getElementById("email").value
-    console.log(email);
-
     const password = document.getElementById("password").value
-    console.log(password);
 
     const idUser = {email, password};
-
+    
     const reponse = await fetch("http://localhost:5678/api/users/login", {
         method: "POST",
         body: JSON.stringify(idUser),
@@ -35,10 +32,6 @@ async function login(event) {
     }
 
 }
-
-
-
-
 
 //Pour dire d'attendre que le contenu du DOM soit bien chargé avant d'éxécuter le fichier JS
 document.addEventListener('DOMContentLoaded', init);
