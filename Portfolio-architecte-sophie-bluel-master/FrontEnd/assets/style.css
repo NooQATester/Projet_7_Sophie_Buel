@@ -47,13 +47,28 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+html, body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+  }
+  
+
 body {
-	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #fffef8;
 }
-header {
+
+
+.wrapper {
+	max-width: 1140px;
+	width: 100%;
+	margin: auto;
+	flex: 1;
+}
+
+header { 
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
@@ -73,6 +88,7 @@ h1{
 
 h1 > span {
 	font-family: 'Work Sans';
+	font-weight: 400;
 	font-size:10px;
 	letter-spacing: 0.1em;
 ;
@@ -84,6 +100,15 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
+h3 {
+	font-family: 'Work Sans';
+	font-size: 26px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
+
 nav ul {
 	display: flex;
 	align-items: center;
@@ -95,16 +120,45 @@ nav li {
 	font-size: 1.2em;
 }
 
+li a {
+	color: inherit;
+  	text-decoration: none;
+}
+
 li:hover {
 	color: #B1663C;
 }
+
+li a.active, li a:active{
+	color: #000000;
+	font-weight: 500;
+}
+
+.banner {
+	background-color: black;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	font-family: 'Work Sans', sans-serif;
+  }
+  
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -114,6 +168,7 @@ li:hover {
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -121,10 +176,132 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+
+.openModal {
+	display: flex;
+	display: none;
+	gap: 12px;
+	cursor: pointer;
 }
+
+.projects-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 31px;
+	margin-top: 120px;
+	margin-bottom: 70px;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+}
+
+  
+/* Contenu de la modale */
+.modal-content {
+	background: white;
+	padding: 30px;
+	border-radius: 10px;
+	width: 600px;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+	z-index: 2;
+}
+
+.button-add-picture {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 36px;
+	border: none;
+	font-family: "Syne";
+	font-weight: 700;
+	color: #FFFFFF;
+	background-color: #1D6154;
+	margin: 2em auto;
+	width: 237px;
+	border-radius: 60px;
+	cursor: pointer;
+}
+  
+.closeIcon {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.modal-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+	gap: 9px;
+	margin: 40px auto;
+	width: 80%;
+	max-width: 550px;
+}
+  
+.modal-gallery figure {
+	position: relative;
+	margin: 0;
+}
+  
+.modal-gallery img {
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
+	margin-bottom: 30px;
+}
+  
+.delete-icon {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: white;
+	background-color: black;
+	border-radius: 2px;
+	padding: 4px;
+	font-size: 12px;
+	cursor: pointer;
+}
+  
+
+.filter-button {
+	font-family: 'Syne';
+	color: #1D6154;
+	background-color: transparent;
+	border: 1px solid #1D6154 ;
+	border-radius: 60px;
+	margin-bottom: 60px;
+	padding: 10px 25px;
+	cursor: pointer;
+}
+
+.filter-button:hover, .filter-button :active, .filter-button.active {
+	background-color: #1D6154;
+	color: #FFFFFF;
+}
+
+.filters-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -135,6 +312,7 @@ li:hover {
 
 .gallery img {
 	width: 100%;
+	margin-bottom: 10px;
 
 }
 #contact {
@@ -178,6 +356,17 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+
+.password-style {
+	color: inherit;
+	text-align: center;
+}
+
+footer {
+	background-color: #ffffff;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 footer nav ul {
