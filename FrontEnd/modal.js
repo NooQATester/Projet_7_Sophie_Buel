@@ -25,6 +25,7 @@ function addProjectModal() {
         formData.append("category", category);
 
         const token = localStorage.getItem("token");
+        console.log(token);
 
         try {
             const response = await fetch("http://localhost:5678/api/works", {
@@ -34,6 +35,8 @@ function addProjectModal() {
                 },
                 body: formData,
             });
+
+            console.log(response)
 
             if (response.ok) {
                 const newProject = await response.json();
